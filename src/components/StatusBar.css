@@ -1,0 +1,131 @@
+.status-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 85;
+  
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  
+  background: rgba(0, 20, 40, 0.95);
+  border-top: 2px solid rgba(0, 255, 136, 0.3);
+  
+  font-family: 'Courier New', monospace;
+  font-size: 0.8rem;
+  color: #00ff88;
+  
+  box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.3),
+              inset 0 2px 5px rgba(0, 255, 136, 0.1);
+}
+
+.status-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+}
+
+.status-indicator {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #00ff88;
+  animation: pulse-indicator 2s infinite;
+  box-shadow: 0 0 5px currentColor;
+}
+
+.status-indicator.connected {
+  animation: pulse-indicator 2s infinite;
+}
+
+.status-indicator.disconnected {
+  background: #ff0000;
+  animation: pulse-red 1s infinite;
+}
+
+.status-text {
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.status-label {
+  color: rgba(0, 255, 136, 0.7);
+  font-weight: bold;
+}
+
+.status-value {
+  color: #00ff88;
+  font-weight: bold;
+  min-width: 3.5rem;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.status-toggle {
+  margin-left: auto;
+  padding: 0.25rem 0.75rem;
+  background: transparent;
+  border: 1px solid rgba(0, 255, 136, 0.5);
+  color: #00ff88;
+  font-family: 'Courier New', monospace;
+  font-size: 0.8rem;
+  cursor: pointer;
+  border-radius: 0.25rem;
+  transition: all 0.2s ease;
+}
+
+.status-toggle:hover {
+  border-color: #00ff88;
+  box-shadow: 0 0 8px rgba(0, 255, 136, 0.5);
+}
+
+@keyframes pulse-indicator {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 5px currentColor;
+  }
+  50% {
+    opacity: 0.5;
+    box-shadow: 0 0 10px currentColor;
+  }
+}
+
+@keyframes pulse-red {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 5px #ff0000;
+  }
+  50% {
+    opacity: 0.3;
+    box-shadow: 0 0 10px #ff0000;
+  }
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .status-bar {
+    gap: 1rem;
+    font-size: 0.75rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .status-value {
+    min-width: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .status-bar {
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .status-item:nth-child(n+4) {
+    display: none;
+  }
+}
