@@ -1,0 +1,67 @@
+.audio-toggle {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 100;
+  
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  
+  background: rgba(0, 20, 40, 0.8);
+  border: 2px solid #00ff88;
+  border-radius: 2rem;
+  cursor: pointer;
+  
+  color: #00ff88;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
+}
+
+.audio-toggle:hover {
+  background: rgba(0, 30, 60, 0.9);
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+  transform: translateY(-2px);
+}
+
+.audio-toggle.active {
+  background: rgba(0, 255, 136, 0.1);
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.7),
+              inset 0 0 10px rgba(0, 255, 136, 0.2);
+}
+
+.audio-toggle.active:hover {
+  box-shadow: 0 0 30px rgba(0, 255, 136, 1),
+              inset 0 0 15px rgba(0, 255, 136, 0.3);
+}
+
+.audio-icon {
+  font-size: 1.2rem;
+  animation: pulse 2s infinite;
+}
+
+.audio-toggle.active .audio-icon {
+  animation: audio-pulse 0.5s infinite;
+}
+
+.audio-label {
+  text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes audio-pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
