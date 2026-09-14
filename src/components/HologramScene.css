@@ -1,0 +1,29 @@
+.hologram-scene {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: radial-gradient(circle at center, #0a0e27 0%, #000000 100%);
+  overflow: hidden;
+}
+
+.hologram-core,
+.hologram-rings,
+.hologram-particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.hologram-core {
+  z-index: 3;
+}
+
+.hologram-rings {
+  z-index: 2;
+}
+
+.hologram-particles {
+  z-index: 1;
+}
